@@ -25,37 +25,6 @@ from game import Board, Game
 from mcts_alphaZero import MCTSPlayer
 from policy_value_net_tensorflow import PolicyValueNet  # TensorFlow 2.x version
 
-def run():
-    # Game parameters
-    n = 5  # Number of pieces in a row needed to win
-    width, height = 8, 8  # Board size
-    model_file = 'best_policy.weights.h5'  # Trained model file
-
-    # Check if the model file exists
-    if not os.path.exists(model_file):
-        print(f"Model file '{model_file}' not found. Please train the model first.")
-        return
-
-    try:
-        # Initialize the board and game
-        board = Board(width=width, height=height, n_in_row=n)
-        game = Game(board)
-
-        # Load the trained policy-value network
-        best_policy = PolicyValueNet(width, height, model_file=model_file)
-        best_policy.build(input_shape=(None, height, width, 4))  # Build the model with input shape
-        mcts_player = MCTSPlayer(best_policy.policy_value_fn,
-                                 c_puct=5,
-                                 n_playout=400)  # Adjust n_playout as needed
-
-        # Initialize human player
-        human = HumanPlayer()
-
-        # Start the game: start_player=1 (AI first), set to 0 for human first
-        game.start_play(human, mcts_player, start_player=1, is_shown=1)
-    except KeyboardInterrupt:
-        print('\n\rquit')
-
 class HumanPlayer(object):
     """
     Human player class.
@@ -90,6 +59,37 @@ class HumanPlayer(object):
 
     def __str__(self):
         return f"Human {self.player}"
+
+def run():
+    # Game parameters
+    n = 5          # Number of pieces in a row needed to win
+    width, height = 10, 10  # Board size
+    model_file = 'best_policy.weights.h5'  # Trained model file
+
+    # Check if the model file exists
+    if not os.path.exists(model_file):
+        print(f"Model file '{model_file}' not found. Please train the model first.")
+        return
+
+    try:
+        # Initialize the board and game
+        board = Board(width=width, height=height, n_in_row=n)
+        game = Game(board)
+
+        # Load the trained policy-value network
+        best_policy = PolicyValueNet(width, height, model_file=model_file)
+        best_policy.build(input_shape=(None, height, width, 4))  # Build the model with input shape
+        mcts_player = MCTSPlayer(best_policy.policy_value_fn,
+                                 c_puct=5,
+                                 n_playout=400)  # Adjust n_playout as needed
+
+        # Initialize human player
+        human = HumanPlayer()
+
+        # Start the game: start_player=1 (AI first), set to 0 for human first
+        game.start_play(human, mcts_player, start_player=1, is_shown=1)
+    except KeyboardInterrupt:
+        print('\n\rquit')
 
 if __name__ == '__main__':
     run()

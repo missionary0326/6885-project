@@ -29,9 +29,9 @@ class Board(object):
     """
 
     def __init__(self, **kwargs):
-        self.width = int(kwargs.get('width', 8))
-        self.height = int(kwargs.get('height', 8))
-        self.n_in_row = int(kwargs.get('n_in_row', 5))
+        self.width = int(kwargs.get('width', 6))
+        self.height = int(kwargs.get('height', 6))
+        self.n_in_row = int(kwargs.get('n_in_row', 4))
         self.players = [1, 2]
         self.states = {}
         self.availables = []

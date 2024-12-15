@@ -18,3 +18,50 @@
 2024-12-15 04:28:33,599 - INFO - Learning rate multiplier decreased to 0.4444444444444444
 2024-12-15 04:28:33,601 - INFO - kl:0.08260, lr_multiplier:0.444, loss:5.46942663192749, entropy:4.4073309898376465, explained_var_old:-0.998, explained_var_new:-0.998
 2024-12-15 04:29:18,326 - INFO - Training interrupted by user.
+2024-12-15 04:52:11,853 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 04:52:11,854 - INFO - batch i:1, episode_len:31
+2024-12-15 04:54:17,898 - INFO - Training interrupted by user.
+2024-12-15 04:58:53,892 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 04:58:54,472 - INFO - batch i:1, episode_len:33
+2024-12-15 05:02:09,688 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 05:02:09,689 - INFO - batch i:2, episode_len:43
+2024-12-15 05:02:14,955 - WARNING - Early stopping at epoch 37 due to KL 0.08490540087223053
+2024-12-15 05:02:14,956 - INFO - Learning rate multiplier decreased to 0.6666666666666666
+2024-12-15 05:02:14,958 - INFO - kl:0.08491, lr_multiplier:0.667, loss:4.514054298400879, entropy:4.573451042175293, explained_var_old:-0.000, explained_var_new:-1.000
+2024-12-15 05:04:20,812 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:04:20,812 - INFO - batch i:3, episode_len:26
+2024-12-15 05:04:21,938 - WARNING - Early stopping at epoch 20 due to KL 0.09194447845220566
+2024-12-15 05:04:21,938 - INFO - Learning rate multiplier decreased to 0.4444444444444444
+2024-12-15 05:04:21,941 - INFO - kl:0.09194, lr_multiplier:0.444, loss:5.436588764190674, entropy:4.430927276611328, explained_var_old:-0.999, explained_var_new:-0.999
+2024-12-15 05:07:00,503 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 05:07:00,503 - INFO - batch i:4, episode_len:33
+2024-12-15 05:07:01,563 - WARNING - Early stopping at epoch 16 due to KL 0.08617641031742096
+2024-12-15 05:07:01,563 - INFO - Learning rate multiplier decreased to 0.2962962962962963
+2024-12-15 05:07:01,566 - INFO - kl:0.08618, lr_multiplier:0.296, loss:5.083548545837402, entropy:4.433775901794434, explained_var_old:-1.001, explained_var_new:-1.001
+2024-12-15 05:09:15,977 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:09:15,977 - INFO - batch i:5, episode_len:28
+2024-12-15 05:09:17,002 - WARNING - Early stopping at epoch 15 due to KL 0.09022091329097748
+2024-12-15 05:09:17,003 - INFO - Learning rate multiplier decreased to 0.19753086419753085
+2024-12-15 05:09:17,005 - INFO - kl:0.09022, lr_multiplier:0.198, loss:5.668841361999512, entropy:4.277853965759277, explained_var_old:-0.997, explained_var_new:-0.997
+2024-12-15 05:12:10,601 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:12:10,602 - INFO - batch i:6, episode_len:38
+2024-12-15 05:12:11,584 - WARNING - Early stopping at epoch 16 due to KL 0.09462818503379822
+2024-12-15 05:12:11,584 - INFO - Learning rate multiplier decreased to 0.1316872427983539
+2024-12-15 05:12:11,586 - INFO - kl:0.09463, lr_multiplier:0.132, loss:6.1331634521484375, entropy:4.318759441375732, explained_var_old:-0.999, explained_var_new:-0.999
+2024-12-15 05:15:29,727 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 05:15:29,727 - INFO - batch i:7, episode_len:43
+2024-12-15 05:15:30,572 - WARNING - Early stopping at epoch 6 due to KL 0.0898018628358841
+2024-12-15 05:15:30,573 - INFO - Learning rate multiplier decreased to 0.0877914951989026
+2024-12-15 05:15:30,575 - INFO - kl:0.08980, lr_multiplier:0.088, loss:5.7466888427734375, entropy:4.371509075164795, explained_var_old:-1.006, explained_var_new:-1.006
+2024-12-15 05:17:45,871 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:17:45,871 - INFO - batch i:8, episode_len:28
+2024-12-15 05:17:46,932 - WARNING - Early stopping at epoch 17 due to KL 0.08586904406547546
+2024-12-15 05:17:46,935 - INFO - kl:0.08587, lr_multiplier:0.088, loss:5.999712944030762, entropy:4.3047261238098145, explained_var_old:-1.002, explained_var_new:-1.002
+2024-12-15 05:20:18,678 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:20:18,678 - INFO - batch i:9, episode_len:32
+2024-12-15 05:20:19,026 - WARNING - Early stopping at epoch 20 due to KL 0.08712524175643921
+2024-12-15 05:20:19,028 - INFO - kl:0.08713, lr_multiplier:0.088, loss:6.235960483551025, entropy:4.237504959106445, explained_var_old:-1.000, explained_var_new:-1.000
+2024-12-15 05:27:51,584 - INFO - Collected self-play data for game with winner: 2
+2024-12-15 05:27:51,585 - INFO - batch i:1, episode_len:34
+2024-12-15 05:28:49,949 - INFO - Collected self-play data for game with winner: 1
+2024-12-15 05:28:49,950 - INFO - batch i:2, episode_len:13

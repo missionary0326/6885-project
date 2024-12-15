@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-An implementation of the Policy-Value Network in TensorFlow (tf.keras)
-Compatible with TensorFlow 2.x and optimized for GPU acceleration
+Policy-Value Network implementation using TensorFlow 2.x (tf.keras)
 
 Author: Your Name
 """
@@ -88,22 +87,32 @@ class PolicyValueNet(tf.keras.Model):
         act_probs = list(zip(legal_positions, act_probs[legal_positions]))
         return act_probs, value
 
-    @tf.function
     def train_step_custom(self, state_batch, mcts_probs, winner_batch, lr):
-        # 使用tf.function编译训练步骤
-        self.optimizer.lr = lr
+        """
+        Custom training step.
+        Args:
+            state_batch: [N, H, W, C]
+            mcts_probs: [N, board_height*board_width]
+            winner_batch: [N, 1]
+            lr: learning rate
+        Returns:
+            loss: float
+            entropy: float
+        """
         with tf.GradientTape() as tape:
             act_probs, value = self(state_batch, training=True)
             # Value loss
             value_loss = tf.reduce_mean(tf.square(winner_batch - value))
             # Policy loss
             policy_loss = -tf.reduce_mean(tf.reduce_sum(mcts_probs * tf.math.log(act_probs + 1e-10), axis=1))
+            # Total loss
             loss = value_loss + policy_loss
+
         grads = tape.gradient(loss, self.trainable_variables)
         self.optimizer.apply_gradients(zip(grads, self.trainable_variables))
-        # Calculate entropy
+        # Calculate entropy for monitoring
         entropy = -tf.reduce_mean(tf.reduce_sum(act_probs * tf.math.log(act_probs + 1e-10), axis=1))
-        return loss, entropy
+        return loss.numpy(), entropy.numpy()
 
     def compile_model(self, learning_rate=0.001):
         """
@@ -111,7 +120,8 @@ class PolicyValueNet(tf.keras.Model):
         Args:
             learning_rate (float): learning rate for the optimizer
         """
-        self.optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+        self.optimizer = optimizers.Adam(learning_rate=learning_rate)
+        # Compile with dummy loss to utilize Keras functionalities if needed
         self.compile(optimizer=self.optimizer, loss='mean_squared_error')
 
     def save_model(self, model_path):
